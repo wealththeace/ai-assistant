@@ -1,5 +1,5 @@
 services:
-  # Backend (Main AI API)
+  # Backend API
   - type: web
     name: ai-assistant-api
     env: docker
@@ -17,7 +17,7 @@ services:
       - key: JWT_SECRET_KEY
         value: super-secret-key-123456789
 
-  # Frontend Web App
+  # Frontend Web
   - type: web
     name: ai-assistant-web
     env: static
