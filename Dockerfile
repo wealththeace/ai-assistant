@@ -8,14 +8,11 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements
-COPY backend/requirements.txt .
+# Copy everything from the repository
+COPY . .
 
-# Install Python packages
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the backend folder
-COPY backend/ ./backend/
+# Install Python dependencies
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
 # Set working directory to backend
 WORKDIR /app/backend
